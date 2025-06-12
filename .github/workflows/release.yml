@@ -18,6 +18,8 @@ on:
 jobs:
   compliance:
     runs-on: ubuntu-latest
+    env:
+      SILKBOMB_IMG: ${{ vars.SILKBOMB_IMG }}
     steps:
       - name: Checkout
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
