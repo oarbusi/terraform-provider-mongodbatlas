@@ -18,12 +18,11 @@ on:
 jobs:
   compliance:
     runs-on: ubuntu-latest
-    env:
-      SILKBOMB_IMG: ${{ vars.SILKBOMB_IMG }}
     steps:
       - name: Checkout
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
         with:
-          ref: ${{ inputs.version_number }}
+          fetch-depth: 0
+          token: ${{ secrets.APIX_BOT_PAT }}
       - name: Generate SBOM
         run: make gen-purls generate-sbom
